@@ -15,6 +15,7 @@
 		0C29A5CF222045BB007E96C0 /* DogAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C29A5CE222045BB007E96C0 /* DogAPI.swift */; };
 		0C29A5D1222045E2007E96C0 /* DogImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C29A5D0222045E2007E96C0 /* DogImage.swift */; };
 		0C29A5D32220461D007E96C0 /* DogBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C29A5D22220461D007E96C0 /* DogBreed.swift */; };
+		0C29A5D522206045007E96C0 /* PickerView delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C29A5D422206045007E96C0 /* PickerView delegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		0C29A5CE222045BB007E96C0 /* DogAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAPI.swift; sourceTree = "<group>"; };
 		0C29A5D0222045E2007E96C0 /* DogImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImage.swift; sourceTree = "<group>"; };
 		0C29A5D22220461D007E96C0 /* DogBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreed.swift; sourceTree = "<group>"; };
+		0C29A5D422206045007E96C0 /* PickerView delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PickerView delegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				0C29A5B92220454D007E96C0 /* AppDelegate.swift */,
 				0C29A5BB2220454D007E96C0 /* ViewController.swift */,
+				0C29A5D422206045007E96C0 /* PickerView delegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C29A5D522206045007E96C0 /* PickerView delegate.swift in Sources */,
 				0C29A5BC2220454D007E96C0 /* ViewController.swift in Sources */,
 				0C29A5BA2220454D007E96C0 /* AppDelegate.swift in Sources */,
 				0C29A5D32220461D007E96C0 /* DogBreed.swift in Sources */,

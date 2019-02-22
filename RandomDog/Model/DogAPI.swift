@@ -41,5 +41,20 @@ class DogAPI{
         }
         task.resume()
     }
+    
+    class func listAllBreeds(completionHandler:@escaping ([String]?,Error?)->Void){
+        let breedsUrl=URL(string: "https://dog.ceo/api/breeds/list/all")
+        let task=URLSession.shared.dataTask(with: breedsUrl!) { (data, response, error) in
+            guard let data=data else{
+                completionHandler(nil,error)
+                return
+            }
+            let decoder=JSONDecoder()
+            let allBreeds=try! decoder.decode(DogBreed.self, from: data)
+            let breeds=allBreeds.message.keys.map({$0})
+            completionHandler(breeds,nil)
+        }
+        task.resume()
+    }
 }
 

@@ -9,30 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+  
+    @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var imageView: UIImageView!
+    var breeds:[String]!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let endpointUrl = DogAPI.endPoint.randomPicsFromAllBreads.url
-        DogAPI.requestRandImage(endPointUrl: endpointUrl,completionHandler: handleImageResponse(url:error:))
-        let breedsUrl=URL(string: "https://dog.ceo/api/breeds/list/all")
-        let task=URLSession.shared.dataTask(with: breedsUrl!) { (data, response, error) in
-            guard let data=data else{
-                return
-            }
-            let decoder=JSONDecoder()
-            let allBreeds=try! decoder.decode(DogBreed.self, from: data)
-            let breeds=allBreeds.message.keys
-            print(breeds)
-            let x="akisrgdta"
-            if breeds.contains(x){
-                print("+++++++++++++++++++++++++ contains")
-            }
-            else{
-                print("=======================")
-            }
-        }
-        task.resume()
+        DogAPI.listAllBreeds(completionHandler: handleBreedsResponse(breeds:error:))
+   
     }
     
     func handleImageResponse(url:URL?,error:Error?){
@@ -48,6 +32,21 @@ class ViewController: UIViewController {
     func displayImage(image:UIImage){
         DispatchQueue.main.async {
             self.imageView.image=image
+        }
+    }
+    
+    func handleBreedsResponse(breeds:[String]?,error:Error?){
+        guard let breeds=breeds else{
+            return
+        }
+        self.breeds=breeds
+        self.setDelegates()
+    }
+    
+    func setDelegates(){
+        DispatchQueue.main.async {
+            self.pickerView.delegate=self
+            self.pickerView.dataSource=self
         }
     }
 }
