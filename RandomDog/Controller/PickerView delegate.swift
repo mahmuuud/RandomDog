@@ -21,8 +21,10 @@ extension ViewController:UIPickerViewDelegate,UIPickerViewDataSource{
         return self.breeds[row]
     }
     
-    func pickerView(_: UIPickerView, didSelectRow: Int, inComponent: Int){
+    func pickerView(_ pickerView: UIPickerView, didSelectRow: Int, inComponent: Int){
         let endpointUrl = DogAPI.endPoint.randomPicsFromAllBreads.url
-        DogAPI.requestRandImage(endPointUrl: endpointUrl,completionHandler: handleImageResponse(url:error:))
+        self.selectedBreed=self.breeds[didSelectRow]
+        DogAPI.requestRandImage(breed:self.selectedBreed,completionHandler: handleImageResponse(url:error:))
+        print(self.selectedBreed!)
     }
 }

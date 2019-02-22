@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var imageView: UIImageView!
     var breeds:[String]!
+    var selectedBreed:String!
     override func viewDidLoad() {
         super.viewDidLoad()
         DogAPI.listAllBreeds(completionHandler: handleBreedsResponse(breeds:error:))
